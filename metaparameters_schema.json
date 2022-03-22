@@ -4,7 +4,7 @@
     "technique": "This container combines three different approaches for trojan detection in NLP tasks: white-noise analysis (WNA), loss surface analysis (LSA) with model mixup and trojan transferability analysis (TTA).",
     "technique_description": "WNA: Sending random noise as inputs to the model and looking at how the model classifies them to identify anomalous biases. LSA: Interpolating the weights of a clean model and an unknown model and measuring the loss of these intermediate models, the loss surface of a clean model is more compatible to another clean model than a trojaned model. TTA: We identify the weights responsible for the trojan by using gradient ascent and we transfer these weights to a model to measure how difficult transferring a trojan to this model is, transferring to an already trojaned model might be more difficult.",
     "technique_changes": "Bug fixes and minor improvements.",
-    "commit_id": "Placeholder",
+    "commit_id": "5ef6c315726038db9282cc13c170864af8751fb0",
     "repo_name": "https://github.com/yigitcankaya/TrojAI-NLP-R9",
     "additionalProperties": false,
     "required": [ "white_noise_iters", "white_noise_size", "transferability_sparsity", "loss_surface_num_steps"],
