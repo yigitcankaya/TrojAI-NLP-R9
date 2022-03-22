@@ -1,0 +1,26 @@
+Bootstrap: docker
+From: pytorch/pytorch:1.8.0-cuda11.1-cudnn8-runtime
+
+%files
+    ./white_noise.py /
+    ./utils_qa.py /
+    ./utils.py /
+    ./trojan_detector.py /
+    ./transferability.py /
+    ./loss_surface.py /
+
+    ./metaparameters.json /
+    ./metaparameters_schema.json /
+    ./learned_parameters /
+
+%post
+    /opt/conda/bin/conda install scikit-learn
+    /opt/conda/bin/conda install -c anaconda pip 
+    /opt/conda/bin/pip install scipy argparse jsonargparse jsonpickle  jsonschema transformers==4.10.3 datasets torchtext 
+    chmod 777 /*.py
+    chmod 777 /*.json
+    chmod -R 777 /learned_parameters
+
+
+%runscript
+    exec python3 -W ignore /trojan_detector.py "$@"

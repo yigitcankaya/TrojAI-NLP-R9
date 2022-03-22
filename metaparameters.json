@@ -1,0 +1,6 @@
+{
+    "loss_surface_num_steps": -1,
+    "transferability_sparsity": 1.0,
+    "white_noise_iters": 10,
+    "white_noise_size": 10000
+  }
